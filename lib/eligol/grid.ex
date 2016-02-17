@@ -3,9 +3,9 @@ defmodule Eligol.Grid do
   alias Eligol.Cell
 
   defstruct [width: 0, height: 0, cells: []]
-  @spec build!(pos_integer, pos_integer) :: %Grid{
+  @spec new!(pos_integer, pos_integer) :: %Grid{
     width: pos_integer, height: pos_integer, cells: list(%Cell{})}
-  def build!(width \\ 128, height \\ 128) do
+  def new!(width \\ 128, height \\ 128) do
     cells = for _ <- 0..(width * height), do: %Cell{}
     %Grid{width: width, height: height, cells: cells}
   end
