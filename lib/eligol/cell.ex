@@ -4,5 +4,5 @@ defmodule Eligol.Cell do
 end
 
 defimpl Inspect, for: Eligol.Cell do
-  def inspect(cell, _), do: if cell.alive, do: "#", else: " "
+  def inspect(cell, _), do: if cell.alive, do: "0", else: "."
 end

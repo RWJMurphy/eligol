@@ -51,4 +51,16 @@ defmodule Eligol.Grid do
       |> Enum.with_index
       |> Enum.map(fn {cell, index} -> {cell, index_to_coords(grid, index)} end)
   end
+
+  def to_string(grid) do
+    for row <- grid.cells |> Stream.chunk(grid.width) do
+      row |> Enum.map(&inspect/1) |> Enum.join("")
+    end |> Enum.join("\n")
+  end
+end
+
+defimpl Inspect, for: Eligol.Grid do
+  def inspect(grid, _) do
+    Eligol.Grid.to_string(grid)
+  end
 end
